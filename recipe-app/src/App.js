@@ -5,6 +5,8 @@ function App() {
   const APP_ID = "6fda908f";
   const APP_KEY = "cd9b902f74d0f14abc1c21fd9b85244f";
 
+  const [recipes, setRecipes] = useState([]);
+
   useEffect(() => {
     getRecipes();
   }, []);
@@ -15,7 +17,7 @@ function App() {
     );
 
     const data = await response.json();
-    console.log(data);
+    setRecipes(data.hits);
   };
 
   return (
